@@ -1,13 +1,13 @@
 # Debian 8 with mmremote and ISC-DHCP
-# Version 8.1.2
+# Version 8.1.3
 FROM debian:latest
-LABEL vendor="Men & Mice" maintainer="<services@menandmice.com>" version="8.1.2-docker-beta" Description="Men & Mice Suite DHCP Server Controller"
+LABEL vendor="Men & Mice" maintainer="<services@menandmice.com>" version="8.1.3-docker-beta" Description="Men & Mice Suite DHCP Server Controller"
 
 # Update image
 COPY startdhcp.sh /etc/dhcp/startdhcp.sh
-RUN apt update && apt -y upgrade && apt -y install isc-dhcp-server python wget && apt-get clean
+RUN DEBIAN_FRONTEND=noninteractive apt update && apt -y upgrade && apt -y install isc-dhcp-server python wget && apt-get clean
 RUN chmod +x /etc/dhcp/startdhcp.sh
-RUN wget http://download.menandmice.com/current/mmsuite-controllers.linux.x64.tgz
+RUN wget -q http://download.menandmice.com/current/mmsuite-controllers.linux.x64.tgz
 RUN tar xvfz mmsuite-controllers.linux.x64.tgz
 RUN (cd /mmsuite-controllers-* && ./install && rm -rf /mmsuite-controllers-*)
 VOLUME ["/var/lib/dhcp","/etc/dhcp/"]

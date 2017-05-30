@@ -1,10 +1,10 @@
 # Debian 8 with mmremote and BIND 9
-# Version 8.1.2
+# Version 8.1.3
 FROM debian:latest
-LABEL vendor="Men & Mice" maintainer="<services@menandmice.com>" version="8.1.2-docker-beta" Description="Men & Mice Suite DNS Server Controller"
+LABEL vendor="Men & Mice" maintainer="<services@menandmice.com>" version="8.1.3-docker-beta" Description="Men & Mice Suite DNS Server Controller"
 
 # Update image
-RUN apt update && apt -y upgrade && apt -y install bind9 bind9utils dnsutils wget && apt-get clean
+RUN DEBIAN_FRONTEND=noninteractive apt update && apt -y upgrade && apt -y install bind9 bind9utils dnsutils wget && apt-get clean
 RUN mv /etc/bind /etc/bind.debian && mkdir -p /var/cache/bind && ln -s /var/cache/bind /etc/bind
 COPY named.conf /etc/bind/named.conf
 COPY localhost.db /var/cache/bind/localhost.db

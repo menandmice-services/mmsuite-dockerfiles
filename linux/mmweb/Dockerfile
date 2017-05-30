@@ -1,7 +1,7 @@
 # Debian 8 with mmweb
-# Version 8.1.2
+# Version 8.1.3
 FROM debian:latest
-LABEL vendor="Men & Mice" maintainer="<services@menandmice.com>" version="8.1.2-docker-beta" Description="Men & Mice Suite Web-UI"
+LABEL vendor="Men & Mice" maintainer="<services@menandmice.com>" version="8.1.3-docker-beta" Description="Men & Mice Suite Web-UI"
 
 # Update image
 RUN DEBIAN_FRONTEND=noninteractive apt update && DEBIAN_FRONTEND=noninteractive apt -y upgrade && DEBIAN_FRONTEND=noninteractive apt -y install python wget apache2 && DEBIAN_FRONTEND=noninteractive apt-get clean
