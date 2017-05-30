@@ -1,7 +1,7 @@
 # Debian 8 with mmremote and ISC-DHCP
-# Version 8.1
+# Version 8.1.2
 FROM debian:latest
-LABEL vendor="Men & Mice" maintainer="<services@menandmice.com>" version="8.1-docker-beta" Description="Men & Mice Suite DHCP Server Controller"
+LABEL vendor="Men & Mice" maintainer="<services@menandmice.com>" version="8.1.2-docker-beta" Description="Men & Mice Suite DHCP Server Controller"
 
 # Update image
 COPY startdhcp.sh /etc/dhcp/startdhcp.sh

@@ -1,7 +1,7 @@
 # Debian 8 with mmremote and BIND 9
-# Version 8.1
+# Version 8.1.2
 FROM debian:latest
-LABEL vendor="Men & Mice" maintainer="<services@menandmice.com>" version="8.1-docker-beta" Description="Men & Mice Suite DNS Server Controller"
+LABEL vendor="Men & Mice" maintainer="<services@menandmice.com>" version="8.1.2-docker-beta" Description="Men & Mice Suite DNS Server Controller"
 
 # Update image
 RUN apt update && apt -y upgrade && apt -y install bind9 bind9utils dnsutils wget && apt-get clean
