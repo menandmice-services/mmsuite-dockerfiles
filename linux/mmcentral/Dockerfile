@@ -1,7 +1,7 @@
 # Debian 8 with mmcentral
-# Version 8.1.3
+# Version 8.2.8
 FROM debian:latest
-LABEL vendor="Men & Mice" maintainer="<services@menandmice.com>" version="8.1.3-docker-beta" Description="Men & Mice Suite Central"
+LABEL vendor="Men & Mice" maintainer="<services@menandmice.com>" version="8.2.8-docker-beta" Description="Men & Mice Suite Central"
 
 # Update image
 RUN DEBIAN_FRONTEND=noninteractive apt update && apt -y upgrade && apt -y install python wget && apt-get clean
