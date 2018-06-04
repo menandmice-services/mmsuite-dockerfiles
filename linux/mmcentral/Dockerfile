@@ -4,7 +4,7 @@ FROM centos:latest
 LABEL vendor="Men & Mice" maintainer="<services@menandmice.com>" version="8.2.8-docker-beta" Description="Men & Mice Suite Central running on CentOS Linux"
 
 # Update image
-RUN yum -y update && yum -y install python wget && yum clean-all
+RUN yum -y update && yum -y install python wget && yum clean all
 RUN wget -q http://download.menandmice.com/Linux/8.2.8/mmsuite-central-8.2.8.linux.x64.tgz && tar xvfz mmsuite-central-8.2.8.linux.x64.tgz && (cd /mmsuite-central-* && ./install && rm -rf /mmsuite-central-* && pkill mmcentrald && rm /var/mmsuite/mmcentral/mmsuite.db* )
 VOLUME ["/var/mmsuite"]
 EXPOSE 1231
