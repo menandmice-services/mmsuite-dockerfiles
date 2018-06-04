@@ -5,7 +5,11 @@ LABEL vendor="Men & Mice" maintainer="<services@menandmice.com>" version="8.2.8-
 
 # Update image
 RUN yum -y update && yum -y install python wget && yum clean all
-RUN wget -q http://download.menandmice.com/Linux/8.2.8/mmsuite-central-8.2.8.linux.x64.tgz && tar xvfz mmsuite-central-8.2.8.linux.x64.tgz && (cd /mmsuite-central-* && ./install && rm -rf /mmsuite-central-* && pkill mmcentrald && rm /var/mmsuite/mmcentral/mmsuite.db* )
+RUN wget -q http://download.menandmice.com/Linux/8.2.8/mmsuite-central-8.2.8.linux.x64.tgz && \
+    tar xvfz mmsuite-central-8.2.8.linux.x64.tgz && \
+    cp /mmsuite-central-*/linux/mmcentrald /usr/sbin/mmcentrald && \
+    mkdir -p /var/mmsuite/mmcentral && \
+    rm -rf /mmsuite-central-*
 VOLUME ["/var/mmsuite"]
 EXPOSE 1231
 WORKDIR /var/mmsuite
